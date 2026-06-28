@@ -1,30 +1,35 @@
-# BÀI THU HOẠCH: TỔNG QUAN VỀ WEB BACKEND VÀ FASTAPI
+## Khái niệm 
+**Backend** : là phần hệ thống nền tảng của một ứng dụng, web mà người dùng không nhìn thấy
 
-## Phần 1: Khái niệm cơ bản
+**Client - Sever**: Là cơ chế tương tác mạng cơ bản. Trong đó, Client đóng vai trò gửi đề xuất/yêu cầu, còn Server sẽ tiếp nhận, xử lý logic và phản hồi lại kết quả tương ứng.
 
-### 1. Backend là gì?
-Theo cách hiểu của em, nếu một trang web là một nhà hàng thì giao diện (Frontend) chính là không gian quán, bàn ghế và thực đơn mà khách hàng nhìn thấy. Còn **Backend** chính là khu vực nhà bếp – nơi thực khách không nhìn thấy được nhưng lại là nơi xử lý toàn bộ các yêu cầu. 
+**API**: cầu nối kỹ thuật số, giúp các phần mềm hoặc hệ thống khác nhau có thể hiểu nhau, từ đó trao đổi và chia sẻ dữ liệu một cách mượt mà.
 
-Backend là phần kiến trúc chạy ngầm ở phía máy chủ, chịu trách nhiệm xử lý logic, tính toán dữ liệu, tương tác với cơ sở dữ liệu (Database) và đảm bảo cho ứng dụng hoạt động mượt mà, bảo mật.
+**JSON**: Định dạng lưu trữ và truyền tải dữ liệu bằng văn bản (text) theo một cấu trúc quy chuẩn, gọn nhẹ. Đây là ngôn ngữ chung phổ biến nhất hiện nay để đóng gói dữ liệu khi trao đổi giữa Client và Server.
 
-### 2. Client – Server là gì?
-Đây là một mô hình giao tiếp cơ bản trên Internet giữa hai bên:
-* **Client (Phía khách):** Là thiết bị hoặc ứng dụng mà người dùng trực tiếp thao tác (như trình duyệt Chrome, ứng dụng trên điện thoại). Client đóng vai trò là người đưa ra yêu cầu (Request).
-* **Server (Phía máy chủ):** Là một máy tính có cấu hình mạnh, luôn bật 24/7 để tiếp nhận yêu cầu từ Client. Nó sẽ xử lý, tìm kiếm thông tin và "trả lời" (Response) lại cho Client.
+## Bản chất của Giao thức Web
+**HTTP**: Là phương thức truyền tải dữ liệu nền tảng trên Internet. Nó hoạt động như một bộ quy tắc ứng xử chung để các thiết bị và máy chủ có thể "nói chuyện" và hiểu được nhau.
 
-> **Ví dụ thực tế:** Khi em lướt Facebook và bấm vào nút "Xem trang cá nhân", điện thoại của em (Client) sẽ gửi một lời mời dữ liệu đến máy chủ của Facebook (Server). Server tìm đúng thông tin của em rồi gửi ngược lại để màn hình điện thoại hiển thị lên.
+- **GET**: Gửi yêu cầu lên máy chủ để lấy hoặc đọc thông tin về.
+- **POST**: Đẩy dữ liệu mới lên hệ thống để khởi tạo một đối tượng/tài nguyên mới.
+- **PUT**: Gửi dữ liệu nhằm thay đổi, cập nhật hoặc ghi đè lên thông tin đã tồn tại.
+- **DELETE**: Ra lệnh cho máy chủ gỡ bỏ hoặc xóa hẳn một tài nguyên cụ thể.
 
-### 3. API là gì?
-**API (Application Programming Interface)** đóng vai trò như một "người vận chuyển" hoặc một "anh shipper" kết nối giữa hai phần mềm khác nhau. Nó định nghĩa ra các quy tắc để Client và Server có thể nói chuyện và hiểu được nhau.
+## Tìm hiểu FastAPI
+**FastAPI**: là một framework mã nguồn mở của Python chuyên dụng để thiết kế và phát triển các cổng API với tốc độ xử lý tối ưu, giao diện hiện đại và độ tin cậy cao.
 
-Nếu không có API, Client sẽ không biết phải gọi vào đâu để lấy dữ liệu, và Server cũng không biết Client đang muốn gì.
+**Đặc điểm**: 
+- Hỗ trợ lập trình bất đồng bộ
+- Tự động sinh tài liệu API
+- Kiểm tra kiểu dữ liệu ngay từ khi lập trình
 
-### 4. JSON là gì?
-**JSON (JavaScript Object Notation)** là một định dạng văn bản dùng để lưu trữ và trao đổi dữ liệu. Điểm hay của JSON là nó cực kỳ tối giản, viết dưới dạng các cặp `khóa: giá trị` (key: value) nên cả con người đọc cũng hiểu mà máy tính xử lý cũng rất nhanh. Hiện nay, hầu hết các API đều dùng JSON để truyền tải thông tin qua lại.
+FastAPI được dử dụng để xay dựng backend, đặc biệt là các API phục vụ nhiều loại ứng dụng khác nhau. Một số ứng dụng phổ biến:
 
-```json
-{
-  "ten_sinh_vien": "Hoàng",
-  "lop": "Công nghệ thông tin",
-  "mon_hoc": "Web Backend"
-}
+- Backend cho web
+- Backend cho ứng dụng di động
+- Hệ thống quản lí
+
+So với các web framework truyền thống, FastAPI nổi bật nhờ:
+- Tốc độ cực nhanh Nhờ tận dụng tối đa cơ chế lập trình bất đồng bộ
+- An toàn dữ liệu: Tự động kiểm tra và rà soát lỗi kiểu dữ liệu ngay trong quá trình code nhờ tính năng Type Hint của Python.
+- Từ động sinh tài liệu API
